@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const FeaturedFoods = () => {
 
   const [foods, setFoods] = useState([])
-  console.log(foods);
+
 
   useEffect(() => {
     fetch('http://localhost:5000/allfoods')
@@ -46,13 +47,11 @@ const FeaturedFoods = () => {
             </div>
           </div>)
         }
-
-
-
-      </div>
-
+        </div>
       <div className="card-actions justify-center mt-10">
-        <button className="btn btn-primary">See all</button>
+        <Link to={'/availablefoods'}>
+          <button className="btn btn-primary">See all</button>
+        </Link>
       </div>
     </div>
   );
