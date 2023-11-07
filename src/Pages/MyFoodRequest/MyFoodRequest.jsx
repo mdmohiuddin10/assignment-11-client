@@ -14,6 +14,26 @@ const MyFoodRequest = () => {
             .then(res => res.json())
             .then(data => setRequest(data))
     }, [url])
+
+    const handleDelete = id =>{
+        fetch(`http://localhost:5000/requestFood/${id}`,{
+            method: 'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=> {
+            console.log(data);
+            if(data.deletedCount > 0){
+                alert('deleted Successfully')
+                const remaining = request.filter(book=> book._id !== id);
+                setRequest(remaining)
+            }
+        })
+
+    }
+
+
+
+
     return (
         <div>
             <h2>hello {request.length}</h2>
@@ -56,6 +76,12 @@ const MyFoodRequest = () => {
                                 </tr>
                                 {/* row 2 */}
                             </tbody>
+                           {
+                            food.foodStatus? 
+                            <div className="card-actions justify-end">
+                            <button onClick={()=>handleDelete(food._id)} className="btn btn-accent">Cancel Reques</button>
+                            </div>: ''
+                           }
                         </table>
                     </div>
                 )
