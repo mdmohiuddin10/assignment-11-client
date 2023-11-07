@@ -5,16 +5,25 @@ import { AuthContex } from "../../firebase/AuthProvider";
 
 const Details = () => {
     const details = useLoaderData()
-    const {user} = useContext(AuthContex)
+    const { user } = useContext(AuthContex)
     console.log(details);
 
-    const getCurrentDate =()=>{
+    const getCurrentDate = () => {
         const now = new Date();
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
         const day = String(now.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
-      }
+    }
+
+
+    const handleRequestFood = event => {
+        event.preventDefault()
+        const form = event.target
+        const note = form.note.value
+        const money = form.money.value
+        console.log(note, money);
+    }
 
 
 
@@ -33,63 +42,79 @@ const Details = () => {
                         <a href="#my_modal_8" className="btn">request</a>
                         {/* Put this part before </body> tag */}
                         <div className="modal" id="my_modal_8">
-                            <div className="modal-box">
-                                <div className="form-control">
-                                    <label className="input-group">
-                                        <span>Food Name</span>
-                                        <input type="text" value={details.foodName} readOnly placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="input-group">
-                                        <span>Food Image</span>
-                                        <input type="text" readOnly value={details.photo} placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="input-group">
-                                        <span>Food Id</span>
-                                        <input type="text" value={details._id} readOnly placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="input-group">
-                                        <span>Donator email</span>
-                                        <input type="text" value={details.email} readOnly placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="input-group">
-                                        <span> Donator Name</span>
-                                        <input type="text" value={details.name} readOnly placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="input-group">
-                                        <span>User email</span>
-                                        <input type="text" value={user.email} readOnly placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="input-group">
-                                        <span>Request Date</span>
-                                        <input type="text" value={getCurrentDate()} placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Your Email</span>
-                                    </label>
-                                    <label className="input-group">
-                                        <span>Email</span>
-                                        <input type="text" placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
-                                </div><div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Your Email</span>
-                                    </label>
-                                    <label className="input-group">
-                                        <span>Email</span>
-                                        <input type="text" placeholder="info@site.com" className="input input-bordered" />
-                                    </label>
+                            <form onSubmit={handleRequestFood}>
+                                <div className="modal-box">
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Food Name</span>
+                                            <input type="text" value={details.foodName} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Food Image</span>
+                                            <input type="text" readOnly value={details.photo} placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Food Id</span>
+                                            <input type="text" value={details._id} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Donator email</span>
+                                            <input type="text" value={details.email} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span> Donator Name</span>
+                                            <input type="text" value={details.name} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>User email</span>
+                                            <input type="text" value={user?.email} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Request Date</span>
+                                            <input type="text" value={getCurrentDate()} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Pickup Location</span>
+                                            <input type="text" value={details.pickupLocation} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Expire Date</span>
+                                            <input type="text" value={details.date} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Additional Notes</span>
+                                            <input type="text" name="note" placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="input-group">
+                                            <span>Donation Money</span>
+                                            <input type="text" name="money" placeholder="info@site.com" className="input input-bordered" />
+                                        </label>
+                                    </div>
+                                    <div className="modal-action">
+                                        <button className="btn btn-accent">request</button>
+                                    </div>
                                 </div>
-                                <div className="modal-action">
-                                    <a href="#" className="btn">Yay!</a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
