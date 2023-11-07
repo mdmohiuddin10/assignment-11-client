@@ -1,17 +1,32 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContex } from "../../../firebase/AuthProvider";
 
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContex)
 
     const navlink = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/availablefoods'}>Available Foods</NavLink></li>
         <li><NavLink to={'/addfood'}>Add Food</NavLink></li>
         <li><NavLink to={''}>Manage My Foods</NavLink></li>
-        <li><NavLink to={''}>My Food Reques</NavLink></li>
-        <li><NavLink to={'/register'}>Register</NavLink></li>
-        <li><NavLink to={'/login'}>login</NavLink></li>
+        <li><NavLink to={'/myFoodRequest'}>My Food Reques</NavLink></li>
+        {
+            user?.email ? <li><NavLink to={'/login'}>login</NavLink></li> :
+                <li><NavLink to={'/register'}>Register</NavLink></li>
+        }
     </>
+
+    const handleLogOut = () => {
+        logOut()
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
+
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -32,9 +47,21 @@ const Navbar = () => {
                     }
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
-            </div>
+            {
+                user?.email ? <div className="navbar-end">
+                    <div className="flex">
+                        <h2>{user.displayName}</h2>
+                        <img className="w-[30px] rounded-full" src={user.photoURL} alt="" />
+                    </div>
+                    <a onClick={handleLogOut} className="btn">Log Out</a>
+
+                </div> :
+                    <div className="navbar-end">
+                        <NavLink to={'/login'}>
+                            <a className="btn">login</a>
+                        </NavLink>
+                    </div>
+            }
         </div>
     );
 };
