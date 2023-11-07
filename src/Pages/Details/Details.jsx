@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const Details = () => {
     const details = useLoaderData()
     const { user } = useContext(AuthContex)
-    console.log(details);
+    // console.log('from details',details);
 
     const getCurrentDate = () => {
         const now = new Date();
@@ -24,7 +24,7 @@ const Details = () => {
         const note = form.note.value
         const money = form.money.value
         const requestFood = {
-            note, money, foodName: details.foodName, foodImage: details.photo, foodId: details._id, danarEmail: details.email, donatorName: details.name, userEmail: user.email, requestDate: getCurrentDate(), pickupLocation: details.pickupLocation, expireDate: details.date
+            note, money, foodName: details.foodName, foodImage: details.photo, foodId: details._id, danarEmail: details.email, donatorName: details.name, userEmail: user.email, requestDate: getCurrentDate(), pickupLocation: details.pickupLocation,foodStatus: details.foodStatus, expireDate: details.date
         }
         console.log(requestFood);
 

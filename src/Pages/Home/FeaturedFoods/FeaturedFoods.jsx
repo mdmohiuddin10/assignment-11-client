@@ -42,12 +42,14 @@ const FeaturedFoods = () => {
                 <p>Notes: {food.additionalNotes}</p>
               </div>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">View Detaies</button>
+                <Link to={`/details/${food._id}`}>
+                  <button className="btn btn-primary">View Detaies</button>
+                </Link>
               </div>
             </div>
           </div>)
         }
-        </div>
+      </div>
       <div className="card-actions justify-center mt-10">
         <Link to={'/availablefoods'}>
           <button className="btn btn-primary">See all</button>
