@@ -22,7 +22,10 @@ const Details = () => {
         const form = event.target
         const note = form.note.value
         const money = form.money.value
-        console.log(note, money);
+       const requestFood ={
+        note, money, foodName: details.foodName, foodImage: details.photo, foodId: details._id, danarEmail: details.email, donatorName: details.name, userEmail: user.email, requestDate: getCurrentDate(), pickupLocation: details.pickupLocation,expireDate: details.date
+       }
+       console.log(requestFood);
     }
 
 

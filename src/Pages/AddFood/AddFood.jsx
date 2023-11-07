@@ -29,7 +29,7 @@ const AddFood = () => {
             name: user.displayName,
             email: user.email
         }
-        console.log(newProduct);
+        // console.log(newProduct);
 
         // send data to the server
         fetch('http://localhost:5000/allfood',{
