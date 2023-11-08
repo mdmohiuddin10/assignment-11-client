@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import { useTable } from "react-table";
 import { AuthContex } from "../../firebase/AuthProvider";
@@ -9,6 +9,7 @@ const ManageFoods = () => {
     const { user } = useContext(AuthContex);
     const manageFoods = useLoaderData();
     const [isLoading, setIsLoading] = useState(true);
+    // const [requset, setRequest] = useState([])
 
 
     setTimeout(() => {
@@ -36,13 +37,11 @@ const ManageFoods = () => {
             accessor: "actions",
             Cell: ({ row }) => (
                 <div>
-                    <button onClick={() => handleUpdate(id)} className="bg-blue-500 text-white hover:bg-blue-600 px-2 py-1 rounded-md">
+                    <button>
                         Update
                     </button>
-                    <NavLink to={'/'}>
-                        <button onClick={() => handleDelete(row.original)}>Delete</button>
-                    </NavLink>
-                    <button onClick={() => handleManage(row.original)}>Manage</button>
+                    <button onClick={() => handleDelete(row.original)}>Delete</button>
+                    <button>Manage</button>
                 </div>
 
             )
@@ -55,6 +54,7 @@ const ManageFoods = () => {
         foodName: food.foodName,
         name: food.name,
         date: food.date,
+        email: food.email,
         actions: food._id,
     }));
 
@@ -62,9 +62,10 @@ const ManageFoods = () => {
         return <div>Loading...</div>;
     }
 
-   
-    const handleDelete = (actions) => {
-        fetch(`http://localhost:5000/allfoods/${actions}`, {
+
+    const handleDelete = (row) => {
+        console.log(row);
+        fetch(`http://localhost:5000/allfoods/${row.actions}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -86,15 +87,16 @@ const ManageFoods = () => {
                                 icon: "success"
                             });
                         }
-                        // const remaining = request.filter(book=> book._id !== id);
+                        // const remaining = manageFoods.filter(book=> book._id !== _id);
                         // setRequest(remaining)
                     }
                 });
             })
 
     }
+    
 
-   
+
 
     return (
         <div>
@@ -117,7 +119,7 @@ const ManageFoods = () => {
                                             <NavLink to={`/updatedata/${row.actions}`}>
                                                 <button className="btn mr-2 btn-primary">Update</button>
                                             </NavLink>
-                                            <button className="btn mr-2 btn-primary" onClick={() => handleDelete(row.actions)}>Delete</button>
+                                            <button className="btn mr-2 btn-primary" onClick={() => handleDelete(row)}>Delete</button>
                                             <NavLink to={`/manageSingleFood/${row.actions}`}>
                                                 <button className="btn mr-2 btn-primary">Manage</button>
                                             </NavLink>

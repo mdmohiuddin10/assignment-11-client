@@ -24,7 +24,7 @@ const Details = () => {
         const note = form.note.value
         const money = form.money.value
         const requestFood = {
-            note, money, foodName: details.foodName, foodImage: details.photo, foodId: details._id, danarEmail: details.email, donatorName: details.name, userEmail: user.email, requestDate: getCurrentDate(), pickupLocation: details.pickupLocation,foodStatus: details.foodStatus, expireDate: details.date
+            note, money, foodName: details.foodName, foodImage: details.photo, foodId: details._id, danarEmail: details.email, donatorName: details.name, userEmail: user.email, userName: user.displayName, requestDate: getCurrentDate(), pickupLocation: details.pickupLocation,foodStatus: details.foodStatus, expireDate: details.date
         }
         console.log(requestFood);
 
@@ -104,6 +104,12 @@ return (
                                     <label className="input-group">
                                         <span>User email</span>
                                         <input type="text" value={user?.email} readOnly placeholder="info@site.com" className="input input-bordered" />
+                                    </label>
+                                </div>
+                                <div className="form-control">
+                                    <label className="input-group">
+                                        <span>User Name</span>
+                                        <input type="text" value={user?.displayName} readOnly placeholder="info@site.com" className="input input-bordered" />
                                     </label>
                                 </div>
                                 <div className="form-control">

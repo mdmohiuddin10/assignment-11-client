@@ -65,7 +65,7 @@ const AddFood = () => {
                             <span className="label-text">Food Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="foodName" placeholder="Food Name" className="input input-bordered md:w-full w-[300px]" />
+                            <input type="text" required name="foodName" placeholder="Food Name" className="input input-bordered md:w-full w-[300px]" />
                         </label>
                     </div>
                     <div className="form-control w-1/2">
@@ -73,7 +73,7 @@ const AddFood = () => {
                             <span className="label-text">Food Quantity</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="foodQuantity" placeholder=" Food Quantity" className="input input-bordered md:w-full w-[300px]" />
+                            <input type="text" required name="foodQuantity" placeholder=" Food Quantity" className="input input-bordered md:w-full w-[300px]" />
                         </label>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ const AddFood = () => {
                             <span className="label-text">Pickup Location</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="pickupLocation" placeholder="Pickup Location" className="input input-bordered w-[300px] md:w-full" />
+                            <input type="text" required name="pickupLocation" placeholder="Pickup Location" className="input input-bordered w-[300px] md:w-full" />
                         </label>
                     </div>
                     <div className="form-control w-1/2">
@@ -91,7 +91,7 @@ const AddFood = () => {
                             <span className="label-text">Expired Date/Time</span>
                         </label>
                         <label className="input-group">
-                            <input type="date" name="date" placeholder="Expired Date/Time" className="input input-bordered w-[300px] md:w-full" />
+                            <input type="date" required name="date" placeholder="Expired Date/Time" className="input input-bordered w-[300px] md:w-full" />
                         </label>
                     </div>
                 </div>
@@ -101,7 +101,7 @@ const AddFood = () => {
                             <span className="label-text">Additional Notes</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="additionalNotes" placeholder="Additional Notes" className="input input-bordered w-[300px] md:w-full" />
+                            <input type="text" required name="additionalNotes" placeholder="Additional Notes" className="input input-bordered w-[300px] md:w-full" />
                         </label>
                     </div>
                     <div className="form-control w-1/2">
@@ -109,7 +109,7 @@ const AddFood = () => {
                             <span className="label-text">Food Image</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" placeholder="Food Image" className="input input-bordered w-[300px] md:w-full" />
+                            <input type="text" required name="photo" placeholder="Food Image" className="input input-bordered w-[300px] md:w-full" />
                         </label>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ const AddFood = () => {
                             <span className="label-text">Food Status</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="foodStatus" placeholder="Food Status" defaultValue={'available'} className="input input-bordered w-full" />
+                            <input type="text" required name="foodStatus" placeholder="Food Status" defaultValue={'available'} className="input input-bordered w-full" />
                         </label>
                     </div>
 
