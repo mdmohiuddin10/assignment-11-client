@@ -8,6 +8,7 @@ import AvailableFoods from "../Pages/AvailableFoods/AvailableFoods";
 import Details from "../Pages/Details/Details";
 import MyFoodRequest from "../Pages/MyFoodRequest/MyFoodRequest";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ManageFoods from "../Pages/ManageFoods/ManageFoods";
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,11 @@ const router = createBrowserRouter([
         {
           path: 'myFoodRequest',
           element: <MyFoodRequest></MyFoodRequest>
+      },
+        {
+          path: 'manageFoods',
+          element: <ManageFoods></ManageFoods>,
+          loader: ()=>fetch('http://localhost:5000/allfoods')
       },
       ]
     },

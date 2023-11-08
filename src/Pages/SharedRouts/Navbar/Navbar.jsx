@@ -10,7 +10,7 @@ const Navbar = () => {
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/availablefoods'}>Available Foods</NavLink></li>
         <li><NavLink to={'/addfood'}>Add Food</NavLink></li>
-        <li><NavLink to={''}>Manage My Foods</NavLink></li>
+        <li><NavLink to={'/manageFoods'}>Manage My Foods</NavLink></li>
         <li><NavLink to={'/myFoodRequest'}>My Food Reques</NavLink></li>
         {
             user?.email ? <li><NavLink to={'/login'}>login</NavLink></li> :
@@ -28,7 +28,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 mb-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,7 +38,11 @@ const Navbar = () => {
                         {navlink}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a className="text-xl">
+                    <NavLink to={'/'}>
+                        <img className="w-[100px]" src="https://i.postimg.cc/rszYj0Ws/Food-Thrive-logos.jpg" alt="" />
+                    </NavLink>
+                </a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
