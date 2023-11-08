@@ -1,11 +1,12 @@
 import { FaLocationArrow, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
         <div className="mt-16">
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <aside>
-                   <img className="w-[100px]" src="https://i.postimg.cc/rszYj0Ws/Food-Thrive-logos.jpg" alt="" />
+                    <img className="w-[100px]" src="https://i.postimg.cc/rszYj0Ws/Food-Thrive-logos.jpg" alt="" />
                     <p>Food Thrive<br />Working Community food Sharing And Surplus Reduce</p>
                     <aside className="px-2">
                         <h2 className="flex gap-2 items-center mb-2"><span><FaLocationArrow></FaLocationArrow></span>
@@ -23,22 +24,31 @@ const Footer = () => {
                     </aside>
                 </aside>
                 <nav>
-                    <header className="footer-title">Services</header>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
-                </nav>
-                <nav>
                     <header className="footer-title">Company</header>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <NavLink to={'/about'}>
+                        <a className="link link-hover">About us</a>
+                    </NavLink>
+                    <NavLink to={'/contact'}>
+                        <a className="link link-hover">Contact</a>
+                    </NavLink>
+                    <NavLink to={'/availableFoods'}>
+                        <a className="link link-hover">Available Foods</a>
+                    </NavLink>
+                    <NavLink to={'myFoodRequest'}>
+                        <a className="link link-hover">My food request</a>
+                    </NavLink>
+                    <NavLink to={'manageFoods'}>
+                        <a className="link link-hover">Manage My Foods</a>
+                    </NavLink>
+                    <NavLink to={'register'}>
+                        <a className="link link-hover">My Account</a>
+                    </NavLink>
                 </nav>
                 <nav>
                     <header className="footer-title">Legal</header>
-                    <a className="link link-hover">Terms of use</a>
+                    <NavLink to={'copyright'}>
+                        <a className="link link-hover">Copyright Notice</a>
+                    </NavLink>
                     <a className="link link-hover">Privacy policy</a>
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
