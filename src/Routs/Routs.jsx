@@ -11,6 +11,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ManageFoods from "../Pages/ManageFoods/ManageFoods";
 import About from "../Pages/Home/AboutSection/About";
 import Copyright from "../Pages/SharedRouts/Footer/Copyright/Copyright";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/addfood',
-            element: <AddFood></AddFood>
+            element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
         },
         {
             path: '/availablefoods',
@@ -47,11 +48,11 @@ const router = createBrowserRouter([
       },
         {
           path: 'myFoodRequest',
-          element: <MyFoodRequest></MyFoodRequest>
+          element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>
       },
         {
           path: 'manageFoods',
-          element: <ManageFoods></ManageFoods>,
+          element: <PrivateRoute><ManageFoods></ManageFoods></PrivateRoute>,
           loader: ()=>fetch('http://localhost:5000/allfoods')
       },
         {
