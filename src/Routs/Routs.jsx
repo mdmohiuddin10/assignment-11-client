@@ -12,6 +12,8 @@ import ManageFoods from "../Pages/ManageFoods/ManageFoods";
 import About from "../Pages/Home/AboutSection/About";
 import Copyright from "../Pages/SharedRouts/Footer/Copyright/Copyright";
 import PrivateRoute from "./PrivateRoute";
+import ManageSingleFood from "../Pages/ManageFoods/ManageSingleFood";
+import Updatedata from "../Pages/UpdateData/Updatedata";
 
 
 const router = createBrowserRouter([
@@ -47,6 +49,11 @@ const router = createBrowserRouter([
           loader: ({params})=> fetch(`http://localhost:5000/allfoods/${params.id}`)
       },
         {
+          path: 'manageSingleFood/:id',
+          element: <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
+          loader: ({params})=> fetch(`http://localhost:5000/allfoods/${params.id}`)
+      },
+        {
           path: 'myFoodRequest',
           element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>
       },
@@ -59,6 +66,11 @@ const router = createBrowserRouter([
           path: 'about',
           element: <About></About>
       },
+      {
+        path: 'updatedata/:id',
+        element: <PrivateRoute><Updatedata></Updatedata></PrivateRoute>,
+        loader: ({params})=> fetch(`http://localhost:5000/allfoods/${params.id}`)
+    },
         {
           path: 'copyright',
           element: <Copyright></Copyright>

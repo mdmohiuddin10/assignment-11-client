@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import { useTable } from "react-table";
 import { AuthContex } from "../../firebase/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const ManageFoods = () => {
@@ -9,12 +10,10 @@ const ManageFoods = () => {
     const manageFoods = useLoaderData();
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        // Simulate an asynchronous data fetch here. Replace with your actual data fetching code.
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000); // Adjust the delay as needed
-    }, []);
+
+    setTimeout(() => {
+        setIsLoading(false);
+    }, 1000);
 
     const filterFoods = manageFoods.filter((newFoods) => newFoods.email === user.email);
 
@@ -35,7 +34,7 @@ const ManageFoods = () => {
         {
             Header: "Actions",
             accessor: "actions",
-            Cell: ({ id }) => (
+            Cell: ({ row }) => (
                 <div>
                     <button onClick={() => handleUpdate(id)} className="bg-blue-500 text-white hover:bg-blue-600 px-2 py-1 rounded-md">
                         Update
@@ -56,28 +55,46 @@ const ManageFoods = () => {
         foodName: food.foodName,
         name: food.name,
         date: food.date,
-        actions: food.id,
+        actions: food._id,
     }));
 
     if (isLoading) {
         return <div>Loading...</div>;
     }
 
-    // Define your update, delete, and manage handlers here
-    const handleUpdate = (row) => {
-        // Handle the update action for the selected row
-        console.log("Update clicked for row:", row);
-    };
+   
+    const handleDelete = (actions) => {
+        fetch(`http://localhost:5000/allfoods/${actions}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                        // const remaining = request.filter(book=> book._id !== id);
+                        // setRequest(remaining)
+                    }
+                });
+            })
 
-    const handleDelete = () => {
-        // Handle the delete action for the selected row
-        console.log("Delete clicked for row:",);
-    };
+    }
 
-    const handleManage = (row) => {
-        // Handle the manage action for the selected row
-        console.log("Manage clicked for row:", row);
-    };
+   
 
     return (
         <div>
@@ -96,10 +113,14 @@ const ManageFoods = () => {
                             {columns.map((column) => (
                                 <td key={column.accessor}>
                                     {column.accessor === "actions" ? (
-                                        <div>
-                                            <button onClick={() => handleUpdate(row)}>Update</button>
-                                            <button onClick={() => handleDelete(row)}>Delete</button>
-                                            <button onClick={() => handleManage(row)}>Manage</button>
+                                        <div className="">
+                                            <NavLink to={`/updatedata/${row.actions}`}>
+                                                <button className="btn mr-2 btn-primary">Update</button>
+                                            </NavLink>
+                                            <button className="btn mr-2 btn-primary" onClick={() => handleDelete(row.actions)}>Delete</button>
+                                            <NavLink to={`/manageSingleFood/${row.actions}`}>
+                                                <button className="btn mr-2 btn-primary">Manage</button>
+                                            </NavLink>
                                         </div>
                                     ) : (
                                         row[column.accessor]
