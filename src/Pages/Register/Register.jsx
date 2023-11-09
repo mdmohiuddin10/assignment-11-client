@@ -67,14 +67,8 @@ const Register = () => {
             })
     }
 
-
-
-
-
-
-
     return (
-        <div className="hero bg-base-200 mt-10">
+        <div className="hero bg-base-200 lg:h-[700px] mt-10">
             <div className="hero-content gap-5 flex-col lg:flex-row">
                 <div className="lg:w-1/2 w-full">
                     <img className="px-5 md:px-10 lg:px-0" src="https://i.postimg.cc/3RkjDMQB/11668754-20945760.jpg" alt="" />
