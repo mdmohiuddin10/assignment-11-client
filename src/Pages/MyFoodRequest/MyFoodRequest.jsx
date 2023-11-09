@@ -1,15 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContex } from "../../firebase/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
+
 
 
 const MyFoodRequest = () => {
     const { user } = useContext(AuthContex)
     const [request, setRequest] = useState([])
-    console.log(request);
+    console.log(user);
+
+    
 
 
-    const url = `http://localhost:5000/requestFood?userEmail=${user?.email}`;
+    const url = `https://assignment-11-server-omega-snowy.vercel.app/requestFood?userEmail=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -17,7 +21,7 @@ const MyFoodRequest = () => {
     }, [url])
 
     const handleDelete = id =>{
-        fetch(`http://localhost:5000/requestFood/${id}`,{
+        fetch(`https://assignment-11-server-omega-snowy.vercel.app/requestFood/${id}`,{
             method: 'DELETE'
         })
         .then(res=>res.json())
@@ -53,6 +57,9 @@ const MyFoodRequest = () => {
 
     return (
         <div className="">
+              <Helmet>
+                <title>Food Thrive | My Food REquest</title>
+            </Helmet>
             <h2 className="font-semibold text-3xl text-cenetr">Total: {request.length}</h2>
             {
                 request.map(food =>

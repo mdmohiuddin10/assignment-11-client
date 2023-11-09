@@ -35,7 +35,7 @@ const Updatedata = () => {
         console.log(updatedData);
 
         // send data to the server
-        fetch(`http://localhost:5000/allfoods/${_id}`,{
+        fetch(`https://assignment-11-server-omega-snowy.vercel.app/allfoods/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

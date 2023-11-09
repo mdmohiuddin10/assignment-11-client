@@ -1,8 +1,30 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Name
 
-Currently, two official plugins are available:
+Community Food Sharing and Surplus
+Reduction Platform
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Five thing about my project
+
+- People can add food for helpless people
+- Donar can update his data 
+- People see the food in available page
+- people can requst for food
+- And can cencel his food 
+- have login and register system
+
+
+## Technologies Used
+
+- React
+- Node.js
+- Express
+- MongoDB
+- Twilwind
+- Flowbite
+- Daisy Ui
+- So on.....
+
+
+
+

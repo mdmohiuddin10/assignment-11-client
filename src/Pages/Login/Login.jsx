@@ -3,6 +3,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { useContext } from "react";
 import { AuthContex } from "../../firebase/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const Login = () => {
@@ -61,7 +62,11 @@ const Login = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+     <div>
+          <Helmet>
+                <title>Food Thrive | Login</title>
+            </Helmet>
+           <div className="hero min-h-screen bg-base-200">
         <div className="hero-content gap-5 flex-col lg:flex-row">
             <div className="w-1/2">
                 <img src="https://i.postimg.cc/3RkjDMQB/11668754-20945760.jpg" alt="" />
@@ -96,6 +101,7 @@ const Login = () => {
             </div>
         </div>
     </div>
+     </div>
 
     );
 };

@@ -5,21 +5,23 @@ import { Navigate, useLocation } from "react-router-dom";
 
 
 
-const PrivateRoute = ({children}) => {
+const PrivateRoute = ({ children }) => {
 
-    const {user, loading} = useContext(AuthContex)
+    const { user, loading } = useContext(AuthContex)
     const location = useLocation();
     // console.log(location.pathname)
-        
-        
 
 
-    if(loading){
-        return <span className="loading loading-spinner text-error"></span>
+
+
+    if (loading) {
+        return <div className="justify-center items-center">
+           <img src="https://i.postimg.cc/MKtzsc71/24504365-03092022-rorozoa-10.jpg" alt="" />
+        </div>
     }
 
 
-    if(user){
+    if (user) {
         return children;
     }
     return <Navigate state={location.pathname} to={'/login'}></Navigate>

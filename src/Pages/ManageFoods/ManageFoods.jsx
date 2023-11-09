@@ -3,6 +3,7 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import { useTable } from "react-table";
 import { AuthContex } from "../../firebase/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const ManageFoods = () => {
@@ -65,7 +66,7 @@ const ManageFoods = () => {
 
     const handleDelete = (row) => {
         console.log(row);
-        fetch(`http://localhost:5000/allfoods/${row.actions}`, {
+        fetch(`https://assignment-11-server-omega-snowy.vercel.app/allfoods/${row.actions}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -100,6 +101,9 @@ const ManageFoods = () => {
 
     return (
         <div className="lg:w-3/4 mx-auto mt-10 mb-10">
+             <Helmet>
+                <title>Food Thrive | Manage My Foods</title>
+            </Helmet>
             
             <table className="table">
                 <thead>

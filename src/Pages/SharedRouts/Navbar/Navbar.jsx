@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContex } from "../../../firebase/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Navbar = () => {
@@ -21,6 +22,7 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
             .then(res => res.json())
+            Swal.fire("Good job!", "User logged out Successfully!", "success")
             .then(data => {
                 console.log(data);
             })

@@ -5,7 +5,7 @@ const FeaturedFoods = () => {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/allfoods')
+    fetch('https://assignment-11-server-omega-snowy.vercel.app/allfoods')
       .then((res) => res.json())
       .then((data) => {
         // Sort the food items by quantity in descending order

@@ -29,7 +29,7 @@ const Details = () => {
         console.log(requestFood);
 
         // send data to database
-        fetch('http://localhost:5000/requestFood', {
+        fetch('https://assignment-11-server-omega-snowy.vercel.app/requestFood', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

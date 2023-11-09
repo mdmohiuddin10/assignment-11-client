@@ -42,18 +42,18 @@ const router = createBrowserRouter([
       {
         path: '/availablefoods',
         element: <AvailableFoods></AvailableFoods>,
-        loader: () => fetch('http://localhost:5000/allfoods')
+        loader: () => fetch('https://assignment-11-server-omega-snowy.vercel.app/allfoods')
       },
       {
         path: 'details/:id',
         element: <Details></Details>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allfoods/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-11-server-omega-snowy.vercel.app/allfoods/${params.id}`)
       },
     
       {
         path: '/requestFood/:id',
         element: <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
-        loader: ()=>fetch('http://localhost:5000/requestFood')
+        loader: ()=>fetch('https://assignment-11-server-omega-snowy.vercel.app/requestFood')
       },
       {
         path: 'myFoodRequest',
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       {
         path: 'manageFoods',
         element: <PrivateRoute><ManageFoods></ManageFoods></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/allfoods')
+        loader: () => fetch('https://assignment-11-server-omega-snowy.vercel.app/allfoods')
       },
       {
         path: 'about',
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
       {
         path: 'updatedata/:id',
         element: <Updatedata></Updatedata>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allfoods/${params.id}`)
+        loader: ({ params }) => fetch(`https://assignment-11-server-omega-snowy.vercel.app/allfoods/${params.id}`)
       },
       {
         path: 'copyright',
