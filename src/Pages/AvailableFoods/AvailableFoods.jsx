@@ -4,6 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const AvailableFoods = () => {
     const allFoods = useLoaderData();
     const [search, setSearch] = useState("");
+    // const [sort, setSort] = useState("");
 
     // Function to handle the input field change and update the searchQuery state
     const handleSearchChange = (event) => {
@@ -14,6 +15,11 @@ const AvailableFoods = () => {
     const filteredFoods = allFoods.filter((food) =>
         food.foodName.toLowerCase().includes(search.toLowerCase())
     );
+
+    // const handleSort = ()=>{
+    //     allFoods.sort((a, b) => b.date - a.date);
+    //     setSort(allFoods);
+    // }
 
     return (
         <div>
@@ -27,7 +33,7 @@ const AvailableFoods = () => {
                     />
                     <button className="btn join-item rounded-r-full">Search</button>
                 </div>
-                <button className="btn btn-success">Expire Date</button>
+                <button className="btn btn-success">Sort by Expire Date</button>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 mt-10">
                 {filteredFoods.map((food) => (
@@ -35,19 +41,21 @@ const AvailableFoods = () => {
                         <figure>
                             <img src={food.photo} alt="Food" />
                         </figure>
-                        <div className="card-body">
+                        <div className="card-body font-semibold">
                             <h2 className="card-title">Item: {food.foodName}</h2>
                             <div className="flex justify-between">
                                 <p>Pickup Location: {food.pickupLocation}</p>
-                                <p>Expire Date: {food.date}</p>
+                                <p>Quantity: {food.foodQuantity}</p>
+                            
                             </div>
                             <div className="flex justify-between">
-                                <div>
-                                    <p>Donator Name: {food?.name}</p>
-                                    <img className="w-[50px] rounded-full" src={food?.donatorImage} alt="" />
+                                <div className="flex gap-2">
+                                <img className="w-[50px] rounded-full" src={food?.donatorImage} alt="" />
+                                    <p>Donator:<br></br> {food?.name}</p>
+                                   
                                 </div>
-                                <div>
-                                    <p>Quantity: {food.foodQuantity}</p>
+                                <div className="card-actions ml-8 justify-end">
+                                       <p>Expire Date: {food.date}</p>
                                 </div>
                             </div>
                             <div>

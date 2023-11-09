@@ -49,7 +49,9 @@ const Footer = () => {
                     <NavLink to={'copyright'}>
                         <a className="link link-hover">Copyright Notice</a>
                     </NavLink>
-                    <a className="link link-hover">Privacy policy</a>
+                    <NavLink to={'/contact'}>
+                        <a className="link link-hover">Contact Us</a>
+                    </NavLink>
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
                 {/* 

@@ -99,8 +99,8 @@ const ManageFoods = () => {
 
 
     return (
-        <div>
-            <h2>Hello {filterFoods.length}</h2>
+        <div className="lg:w-3/4 mx-auto mt-10 mb-10">
+            
             <table className="table">
                 <thead>
                     <tr>
@@ -120,7 +120,8 @@ const ManageFoods = () => {
                                                 <button className="btn mr-2 btn-primary">Update</button>
                                             </NavLink>
                                             <button className="btn mr-2 btn-primary" onClick={() => handleDelete(row)}>Delete</button>
-                                            <NavLink to={`/manageSingleFood/${row.actions}`}>
+                                            {/* <NavLink to={`/manageSingleFood/${row.actions}`}> */}
+                                            <NavLink to={`/requestFood/${row.actions}`}>
                                                 <button className="btn mr-2 btn-primary">Manage</button>
                                             </NavLink>
                                         </div>

@@ -24,7 +24,7 @@ const Details = () => {
         const note = form.note.value
         const money = form.money.value
         const requestFood = {
-            note, money, foodName: details.foodName, foodImage: details.photo, foodId: details._id, danarEmail: details.email, donatorName: details.name, userEmail: user.email, userName: user.displayName, requestDate: getCurrentDate(), pickupLocation: details.pickupLocation,foodStatus: details.foodStatus, expireDate: details.date
+            note, money, foodName: details.foodName, foodImage: details.photo, foodId: details._id, danarEmail: details.email, donatorName: details.name, userEmail: user.email, userPhoto: user.photoURL, userName: user.displayName, requestDate: getCurrentDate(), pickupLocation: details.pickupLocation,foodStatus: details.foodStatus, expireDate: details.date
         }
         console.log(requestFood);
 
@@ -57,19 +57,19 @@ return (
     <div className="w-3/4 mx-auto">
         <div className="card card-side bg-base-100 shadow-xl">
             <figure><img className="" src={details.photo} alt="Movie" /></figure>
-            <div className="card-body">
+            <div className="card-body w-full text-lg font-semibold">
                 <p>pickup location:{details.pickupLocation}</p>
-                <p>Donar Name:{details.name}</p>
-                <p>Food Name: {details.foodName}</p>
+                <p>Donar Name:<br></br>{details.name}</p>
+                <p>Food Name:<br></br> {details.foodName}</p>
                 <p>Number Of server: {details.foodQuantity}</p>
                 <p>Expire date: {details.date}</p>
                 <div className="card-actions justify-end">
-                    {/* The button to open modal */}
-                    <a href="#my_modal_8" className="btn">request</a>
+                     {/* The button to open modal */}
+                     <a href="#my_modal_8" className="btn">request</a>
                     {/* Put this part before </body> tag */}
                     <div className="modal" id="my_modal_8">
-                        <form onSubmit={handleRequestFood}>
-                            <div className="modal-box">
+                 <form onSubmit={handleRequestFood}>
+                            <div className="modal-box space-y-2">
                                 <div className="form-control">
                                     <label className="input-group">
                                         <span>Food Name</span>

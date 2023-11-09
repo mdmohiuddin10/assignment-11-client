@@ -52,11 +52,11 @@ const MyFoodRequest = () => {
 
 
     return (
-        <div>
-            <h2>hello {request.length}</h2>
+        <div className="">
+            <h2 className="font-semibold text-3xl text-cenetr">Total: {request.length}</h2>
             {
                 request.map(food =>
-                    <div key={food._id} className="overflow-x-auto">
+                    <div key={food._id} className="overflow-x-auto lg:w-[3/4] mx-auto font-bold">
                         <table className="table mb-10">
                             {/* head */}
                             <thead>

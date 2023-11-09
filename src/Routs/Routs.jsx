@@ -14,69 +14,75 @@ import Copyright from "../Pages/SharedRouts/Footer/Copyright/Copyright";
 import PrivateRoute from "./PrivateRoute";
 import ManageSingleFood from "../Pages/ManageFoods/ManageSingleFood";
 import Updatedata from "../Pages/UpdateData/Updatedata";
+import Contact from "../Pages/Contact/Contact";
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Roots></Roots>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-            path: '/login',
-            element: <Login></Login>
-        },
-        {
-            path: '/register',
-            element: <Register></Register>
-        },
-        {
-            path: '/addfood',
-            element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
-        },
-        {
-            path: '/availablefoods',
-            element: <AvailableFoods></AvailableFoods>,
-            loader: ()=>fetch('http://localhost:5000/allfoods')
-        },
-        {
-          path: 'details/:id',
-          element: <Details></Details>,
-          loader: ({params})=> fetch(`http://localhost:5000/allfoods/${params.id}`)
+  {
+    path: "/",
+    element: <Roots></Roots>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
       },
-        {
-          path: 'manageSingleFood/:foodId',
-          element: <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/requestFood/${params.foodId}`)
+      {
+        path: '/login',
+        element: <Login></Login>
       },
-        {
-          path: 'myFoodRequest',
-          element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>
+      {
+        path: '/register',
+        element: <Register></Register>
       },
-        {
-          path: 'manageFoods',
-          element: <PrivateRoute><ManageFoods></ManageFoods></PrivateRoute>,
-          loader: ()=>fetch('http://localhost:5000/allfoods')
+      {
+        path: '/addfood',
+        element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
       },
-        {
-          path: 'about',
-          element: <About></About>
+      {
+        path: '/availablefoods',
+        element: <AvailableFoods></AvailableFoods>,
+        loader: () => fetch('http://localhost:5000/allfoods')
+      },
+      {
+        path: 'details/:id',
+        element: <Details></Details>,
+        loader: ({ params }) => fetch(`http://localhost:5000/allfoods/${params.id}`)
+      },
+    
+      {
+        path: '/requestFood/:id',
+        element: <PrivateRoute><ManageSingleFood></ManageSingleFood></PrivateRoute>,
+        loader: ()=>fetch('http://localhost:5000/requestFood')
+      },
+      {
+        path: 'myFoodRequest',
+        element: <PrivateRoute><MyFoodRequest></MyFoodRequest></PrivateRoute>
+      },
+      {
+        path: 'manageFoods',
+        element: <PrivateRoute><ManageFoods></ManageFoods></PrivateRoute>,
+        loader: () => fetch('http://localhost:5000/allfoods')
+      },
+      {
+        path: 'about',
+        element: <About></About>
       },
       {
         path: 'updatedata/:id',
-        element:<Updatedata></Updatedata>,
-        loader: ({params})=> fetch(`http://localhost:5000/allfoods/${params.id}`)
-    },
-        {
-          path: 'copyright',
-          element: <Copyright></Copyright>
+        element: <Updatedata></Updatedata>,
+        loader: ({ params }) => fetch(`http://localhost:5000/allfoods/${params.id}`)
       },
-      ]
-    },
-  ]);
+      {
+        path: 'copyright',
+        element: <Copyright></Copyright>
+      },
+      {
+        path: 'contact',
+        element: <Contact></Contact>
+      },
+    ]
+  },
+]);
 
-  export default router
+export default router

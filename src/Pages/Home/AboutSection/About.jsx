@@ -2,9 +2,9 @@
 
 const About = () => {
     return (
-        <div className="mt-10">
-            <h2 className="text-3xl font-bold text-center">About Us</h2>
-            <div className="flex md:flex flex-row gap-8">
+        <div className="md:mt-20 md:mb-20">
+            <h2 className="text-3xl mt-10 mb-10 font-bold text-center">About Us</h2>
+            <div className="flex lg:flex-row flex-col gap-8">
                 <div className="flex-1">
                     <img src="https://i.postimg.cc/mky75M1R/24721219-6896001.jpg" alt="" />
                 </div>

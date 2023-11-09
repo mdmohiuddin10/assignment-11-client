@@ -28,7 +28,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-base-100 mb-10">
+        <div className="navbar bg-base-100 md:mb-10 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -40,12 +40,12 @@ const Navbar = () => {
                 </div>
                 <a className="text-xl">
                     <NavLink to={'/'}>
-                        <img className="w-[100px]" src="https://i.postimg.cc/rszYj0Ws/Food-Thrive-logos.jpg" alt="" />
+                        <img className="md:w-[200px] w-[100px] md:h-[120px]" src="https://i.postimg.cc/7YNVY1pr/Food-Thrive-logos-1.jpg" alt="" />
                     </NavLink>
                 </a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu font-bold text-lg menu-horizontal px-1">
                     {
                         navlink
                     }
@@ -54,15 +54,14 @@ const Navbar = () => {
             {
                 user?.email ? <div className="navbar-end">
                     <div className="flex">
-                        <h2>{user.displayName}</h2>
-                        <img className="w-[30px] rounded-full" src={user.photoURL} alt="" />
+                        <img className="w-[50px] rounded-full" src={user.photoURL} alt="" />
                     </div>
-                    <a onClick={handleLogOut} className="btn">Log Out</a>
+                    <a onClick={handleLogOut} className="btn font-bold text-lg">Log Out</a>
 
                 </div> :
                     <div className="navbar-end">
                         <NavLink to={'/login'}>
-                            <a className="btn">login</a>
+                            <a className="btn font-bold text-lg">login</a>
                         </NavLink>
                     </div>
             }

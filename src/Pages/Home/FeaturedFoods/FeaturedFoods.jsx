@@ -18,23 +18,23 @@ const FeaturedFoods = () => {
     <div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 mt-10">
         {foods.map((food) => (
-          <div key={food._id} className="card w-96 bg-base-100 shadow-xl">
+          <div key={food._id} className="card bg-base-100 shadow-xl">
             <figure>
               <img src={food.photo} alt="Food" />
             </figure>
             <div className="card-body">
               <h2 className="card-title">Item: {food.foodName}</h2>
-              <div className="flex justify-between">
-                <p>Pickup Location: {food.pickupLocation}</p>
-                <p>Expire Date: {food.date}</p>
+              <div className="flex justify-between font-semibold">
+                <p>Pickup Loc: {food.pickupLocation}</p>
+                <p>Quantity: {food.foodQuantity}</p>
               </div>
               <div className="flex justify-between">
-                <div>
-                  <p>Donator Name: {food?.name}</p>
-                  <img className="w-[50px] rounded-full" src={food?.donatorImage} alt="" />
+                <div className="flex gap-2 font-semibold">
+                <img className="w-[60px] rounded-full" src={food?.donatorImage} alt="" />
+                  <p>Donator:<br></br> {food?.name}</p>
                 </div>
-                <div>
-                  <p>Quantity: {food.foodQuantity}</p>
+                <div className="font-semibold">
+                  <p className="ml-20">Expire Date: {food.date}</p>
                 </div>
               </div>
               <div>
