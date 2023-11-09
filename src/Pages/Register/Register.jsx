@@ -74,10 +74,10 @@ const Register = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero bg-base-200 mt-10">
             <div className="hero-content gap-5 flex-col lg:flex-row">
-                <div className="w-1/2">
-                    <img src="https://i.postimg.cc/3RkjDMQB/11668754-20945760.jpg" alt="" />
+                <div className="lg:w-1/2 w-full">
+                    <img className="px-5 md:px-10 lg:px-0" src="https://i.postimg.cc/3RkjDMQB/11668754-20945760.jpg" alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleRegister} className="card-body">

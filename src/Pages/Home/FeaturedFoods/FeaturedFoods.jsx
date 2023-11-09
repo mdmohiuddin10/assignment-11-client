@@ -14,10 +14,13 @@ const FeaturedFoods = () => {
       });
   }, []);
 
+  // Display only the first six food items
+  const displayedFoods = foods.slice(0, 6);
+
   return (
     <div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 mt-10">
-        {foods.map((food) => (
+        {displayedFoods.map((food) => (
           <div key={food._id} className="card bg-base-100 shadow-xl">
             <figure>
               <img src={food.photo} alt="Food" />
@@ -30,8 +33,8 @@ const FeaturedFoods = () => {
               </div>
               <div className="flex justify-between">
                 <div className="flex gap-2 font-semibold">
-                <img className="w-[60px] rounded-full" src={food?.donatorImage} alt="" />
-                  <p>Donator:<br></br> {food?.name}</p>
+                  <img className="w-[60px] rounded-full" src={food?.donatorImage} alt="" />
+                  <p>Donator:<br />{food?.name}</p>
                 </div>
                 <div className="font-semibold">
                   <p className="ml-20">Expire Date: {food.date}</p>

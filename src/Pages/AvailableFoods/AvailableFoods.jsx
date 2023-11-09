@@ -21,11 +21,11 @@ const AvailableFoods = () => {
     );
 
     return (
-        <div>
+        <div className="mx-5 md:mx-10">
             <Helmet>
                 <title>Food Thrive | Available Foods</title>
             </Helmet>
-            <div className="flex gap-10">
+            <div className="md:flex-row gap-10 flex-col">
                 <div className="join">
                     <input
                         className="input input-bordered join-item"
@@ -35,13 +35,13 @@ const AvailableFoods = () => {
                     />
                     <button className="btn join-item rounded-r-full">Search</button>
                 </div>
-                <button className="btn btn-success" onClick={handleSortByExpireDate}>
+                <button className="btn w-[200px] md:mt-0 mt-5 mx-auto btn-success" onClick={handleSortByExpireDate}>
                     Sort by Expire Date
                 </button>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-5 mt-10">
                 {filteredFoods.map((food) => (
-                    <div key={food._id} className="card w-96 bg-base-100 shadow-xl">
+                    <div key={food._id} className="card bg-base-100 shadow-xl">
                         <figure>
                             <img src={food.photo} alt="Food" />
                         </figure>

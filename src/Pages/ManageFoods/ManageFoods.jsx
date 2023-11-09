@@ -100,7 +100,7 @@ const ManageFoods = () => {
 
 
     return (
-        <div className="lg:w-3/4 mx-auto mt-10 mb-10">
+        <div className="lg:w-3/4 mx-auto mt-10 mb-10 px-5">
              <Helmet>
                 <title>Food Thrive | Manage My Foods</title>
             </Helmet>

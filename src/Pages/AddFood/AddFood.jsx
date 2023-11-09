@@ -57,7 +57,7 @@ const AddFood = () => {
 
 
     return (
-        <div>
+        <div className="px-5 md:px-10">
              <Helmet>
                 <title>Food Thrive | Add Foods</title>
             </Helmet>

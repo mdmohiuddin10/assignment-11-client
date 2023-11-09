@@ -10,7 +10,7 @@ const MyFoodRequest = () => {
     const [request, setRequest] = useState([])
     console.log(user);
 
-    
+
 
 
     const url = `https://assignment-11-server-omega-snowy.vercel.app/requestFood?userEmail=${user?.email}`;
@@ -20,44 +20,44 @@ const MyFoodRequest = () => {
             .then(data => setRequest(data))
     }, [url])
 
-    const handleDelete = id =>{
-        fetch(`https://assignment-11-server-omega-snowy.vercel.app/requestFood/${id}`,{
+    const handleDelete = id => {
+        fetch(`https://assignment-11-server-omega-snowy.vercel.app/requestFood/${id}`, {
             method: 'DELETE'
         })
-        .then(res=>res.json())
-        .then(data=> {
-            Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!"
-              }).then((result) => {
-                if (result.isConfirmed) {
-                    if(data.deletedCount > 0){
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                          });
+            .then(res => res.json())
+            .then(data => {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
                         }
-                        const remaining = request.filter(book=> book._id !== id);
+                        const remaining = request.filter(book => book._id !== id);
                         setRequest(remaining)
                     }
-              });
-        })
+                });
+            })
 
     }
-   
+
 
 
 
 
     return (
-        <div className="">
-              <Helmet>
+        <div className="px-5 md:px-10">
+            <Helmet>
                 <title>Food Thrive | My Food REquest</title>
             </Helmet>
             <h2 className="font-semibold text-3xl text-cenetr">Total: {request.length}</h2>
@@ -100,12 +100,12 @@ const MyFoodRequest = () => {
                                 </tr>
                                 {/* row 2 */}
                             </tbody>
-                           {
-                            food.foodStatus? 
-                            <div className="card-actions justify-end">
-                            <button onClick={()=>handleDelete(food._id)} className="btn btn-accent">Cancel Reques</button>
-                            </div>: ''
-                           }
+                            {
+                                food.foodStatus ?
+                                    <div className="card-actions justify-end">
+                                        <button onClick={() => handleDelete(food._id)} className="btn btn-accent">Cancel Reques</button>
+                                    </div> : ''
+                            }
                         </table>
                     </div>
                 )

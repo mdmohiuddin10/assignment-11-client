@@ -42,7 +42,7 @@ const Navbar = () => {
                 </div>
                 <a className="text-xl">
                     <NavLink to={'/'}>
-                        <img className="md:w-[200px] w-[100px] md:h-[120px]" src="https://i.postimg.cc/7YNVY1pr/Food-Thrive-logos-1.jpg" alt="" />
+                        <img className="md:w-[200px] w-[100px] md:h-[100px] lg:h-[120px]" src="https://i.postimg.cc/7YNVY1pr/Food-Thrive-logos-1.jpg" alt="" />
                     </NavLink>
                 </a>
             </div>
